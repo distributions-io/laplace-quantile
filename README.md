@@ -6,7 +6,7 @@ Quantile Function
 
 The [quantile function](https://en.wikipedia.org/wiki/Quantile_function) for a [Laplace](https://en.wikipedia.org/wiki/Laplace_distribution) random variable is
 
-<div class="equation" align="center" data-raw-text="" data-equation="eq:quantile_function">
+<div class="equation" align="center" data-raw-text="Q(p) = \mu - b\,\operatorname{sgn}(p-0.5)\,\ln(1 - 2|p-0.5|)" data-equation="eq:quantile_function">
 	<img src="" alt="Quantile function for a Laplace distribution.">
 	<br>
 </div>

@@ -1,7 +1,7 @@
 {
   "name": "distributions-laplace-quantile",
   "version": "0.0.0",
-  "description": "Laplace  distribution quantile function.",
+  "description": "Laplace distribution quantile function.",
   "author": {
     "name": "Philipp Burckhardt",
     "email": "pburckhardt@outlook.com"
@@ -29,13 +29,16 @@
     "statistics",
     "stats",
     "cdf",
-    "inverse"
+    "inverse",
+    "exponential family"
+    "double exponential"
   ],
   "bugs": {
     "url": "https://github.com/compute-io/laplace-quantile/issues"
   },
   "dependencies": {
     "compute-array-constructors": "^1.0.0",
+    "compute-signum": "^2.0.0",
     "dstructs-matrix": "^2.0.0",
     "utils-deep-get": "^1.0.0",
     "utils-deep-set": "^1.0.1",
@@ -58,7 +61,7 @@
     "istanbul": "^0.3.0",
     "jshint": "2.x.x",
     "jshint-stylish": "2.x.x",
-	"validate.io-finite": "^1.0.0"
+    "validate.io-finite": "^1.0.0"
   },
   "license": "MIT"
 }
