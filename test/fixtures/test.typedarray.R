@@ -1,10 +1,10 @@
 options( digits = 16 );
 library( jsonlite );
-
+library( bda )
 
 mu = 0
 b = 1
-probs = seq( 0, 1, 0.1 )
+probs = seq( 0, 1, 0.01 )
 y = qlap( probs, mu, b )
 
 cat( y, sep = ",\n" )

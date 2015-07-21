@@ -1,5 +1,6 @@
 options( digits = 16 );
 library( jsonlite );
+library( bda )
 
 mu = 0
 b = 1
