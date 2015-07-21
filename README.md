@@ -7,7 +7,7 @@ Quantile Function
 The [quantile function](https://en.wikipedia.org/wiki/Quantile_function) for a [Laplace](https://en.wikipedia.org/wiki/Laplace_distribution) random variable is
 
 <div class="equation" align="center" data-raw-text="Q(p) = \mu - b\,\operatorname{sgn}(p-0.5)\,\ln(1 - 2|p-0.5|)" data-equation="eq:quantile_function">
-	<img src="" alt="Quantile function for a Laplace distribution.">
+	<img src="https://cdn.rawgit.com/distributions-io/laplace-quantile/80640b088abd7a953ac335282b5dc27602439212/docs/img/eqn.svg" alt="Quantile function for a Laplace distribution.">
 	<br>
 </div>
 
@@ -40,15 +40,15 @@ var matrix = require( 'dstructs-matrix' ),
 	i;
 
 out = quantile( 0.25 );
-// returns
+// returns ~-0.693
 
 x = [ 0, 0.2, 0.4, 0.6, 0.8, 1 ];
 out = quantile( x );
-// returns [...]
+// returns [ -Infinity, ~-0.916, ~-0.223, 0.223, 0.916, +Infinity ]
 
 x = new Float32Array( x );
 out = quantile( x );
-// returns Float64Array( [...] )
+// returns Float64Array( [-Infinity,~-0.916,~-0.223,0.223,0.916,+Infinity ] )
 
 x = new Float32Array( 6 );
 for ( i = 0; i < 6; i++ ) {
@@ -63,9 +63,9 @@ mat = matrix( x, [3,2], 'float32' );
 
 out = quantile( mat );
 /*
-	[
-
-	   ]
+	[ -Infinity ~-1.099
+	  ~-0.405     0
+	   ~0.405   ~1.099 ]
 */
 ```
 
@@ -88,7 +88,8 @@ var out = quantile( x, {
 	'mu': 10,
 	'b': 2,
 });
-// returns [...]
+// returns [ -Infinity, ~9.450694, ~9.797267, ~10, ~10.20273, ~10.54931, +Infinity ]
+
 ```
 
 For non-numeric `arrays`, provide an accessor `function` for accessing `array` values.
@@ -110,7 +111,7 @@ function getValue( d, i ) {
 var out = quantile( data, {
 	'accessor': getValue
 });
-// returns [...]
+// returns [ -Infinity, ~-0.916, ~-0.223, 0.223, 0.916, +Infinity ]
 ```
 
 
@@ -132,12 +133,12 @@ var out = quantile( data, {
 });
 /*
 	[
-		{'x':[0,]},
-		{'x':[1,]},
-		{'x':[2,]},
-		{'x':[3,]},
-		{'x':[4,]},
-		{'x':[5,]}
+		{'x':[0,-Infinity]},
+		{'x':[1,~-0.916]},
+		{'x':[2,~-0.223]},
+		{'x':[3,~0.223]},
+		{'x':[4,~0.916]},
+		{'x':[5,+Infinity]}
 	]
 */
 
@@ -150,18 +151,22 @@ By default, when provided a [`typed array`](https://developer.mozilla.org/en-US/
 ``` javascript
 var x, out;
 
-x = new Float32Array( [0,0.2,0.4,0.6,0.8,1] );
+x = new Float32Array( [0.2,0.4,0.6,0.8] );
 
 out = quantile( x, {
-	'dtype': 'int32'
+	'dtype': 'int32',
+	'mu': 10,
+	'b': 2,
 });
-// returns Int32Array( [...] )
+// returns Int32Array( [9,9,10,10] )
 
 // Works for plain arrays, as well...
-out = quantile( [0,0.2,0.4,0.6,0.8,1], {
-	'dtype': 'uint8'
+out = quantile( [0.2,0.4,0.6,0.8], {
+	'dtype': 'uint8',
+	'mu': 10,
+	'b': 2,
 });
-// returns Uint8Array( [...] )
+// returns Uint8Array( [9,9,10,10] )
 ```
 
 By default, the function returns a new data structure. To mutate the input data structure (e.g., when input values can be discarded or when optimizing memory usage), set the `copy` option to `false`.
@@ -178,7 +183,7 @@ x = [ 0, 0.2, 0.4, 0.6, 0.8, 1 ];
 out = quantile( x, {
 	'copy': false
 });
-// returns [...]
+// returns [ -Infinity, ~-0.916, ~-0.223, 0.223, 0.916, +Infinity ]
 
 bool = ( x === out );
 // returns true
@@ -198,9 +203,9 @@ out = quantile( mat, {
 	'copy': false
 });
 /*
-	[
-
-	   ]
+	[ -Infinity ~-1.099
+	  ~-0.405     0
+	   ~0.405   ~1.099 ]
 */
 
 bool = ( mat === out );

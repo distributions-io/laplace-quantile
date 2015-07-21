@@ -30,7 +30,7 @@
     "stats",
     "cdf",
     "inverse",
-    "exponential family"
+    "exponential family",
     "double exponential"
   ],
   "bugs": {
