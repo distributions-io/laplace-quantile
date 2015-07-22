@@ -5,7 +5,7 @@ library( bda )
 mu = 0
 b = 1
 probs = seq( 0, 1, 0.01 )
-y = qlap( probs, mu, b )
+y = qlap( probs, mu, 1/b )
 
 cat( y, sep = ",\n" )
 
