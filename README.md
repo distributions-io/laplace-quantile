@@ -394,7 +394,7 @@ Copyright &copy; 2015. The [Compute.io](https://github.com/compute-io) Authors.
 [travis-image]: http://img.shields.io/travis/distributions-io/laplace-quantile/master.svg
 [travis-url]: https://travis-ci.org/distributions-io/laplace-quantile
 
-[codecov-image]: https://img.shields.io/codecov/distributions-io/c/github/laplace-quantile/master.svg
+[codecov-image]: https://img.shields.io/codecov/c/github/distributions-io/laplace-quantile/master.svg
 [codecov-url]: https://codecov.io/github/distributions-io/laplace-quantile?branch=master
 
 [dependencies-image]: http://img.shields.io/david/distributions-io/laplace-quantile.svg
