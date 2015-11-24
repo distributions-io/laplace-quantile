@@ -1,6 +1,6 @@
 {
   "name": "distributions-laplace-quantile",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Laplace distribution quantile function.",
   "author": {
     "name": "Philipp Burckhardt",
